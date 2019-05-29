@@ -1,0 +1,54 @@
+.chips-form {
+    width: 100%;
+    margin:0 auto;
+}
+
+.chip-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.chip-list input {
+    display: flex;
+    flex: 1 1 auto;
+    margin: 5px;
+}
+
+.dropdown {
+    display: flex;
+    flex-direction: row;
+}
+
+.chip {
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(233, 233, 233);
+    border-radius: 10px;
+    padding: 4px 10px 4px 10px;
+    margin: 5px;
+    white-space: nowrap;
+}
+
+.chip:hover {
+    cursor: pointer;
+    background-color: lightblue;
+}
+
+.clear:hover {
+    background-color: rgb(255, 187, 187);
+}
+
+.cross {
+    padding-top: 1px;
+    color: grey
+}
+
+.remove-btn {
+    margin-left: 5px;
+
+}
+
+.remove-btn:hover {
+    color: red;
+}

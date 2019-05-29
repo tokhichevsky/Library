@@ -1,0 +1,29 @@
+.input-error {
+    border-color: rgb(255, 174, 174);
+}
+
+input {
+    margin: 5px;
+    width: 100%;
+}
+
+textarea {
+    margin: 5px;
+    width: 100%;
+}
+
+.delete-button {
+    display: inline-block;
+    background-color: rgb(233, 233, 233);
+    border-radius: 10px;
+    padding: 4px 10px 4px 10px;
+    margin: 5px;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.delete-button:hover {
+    background-color: rgb(255, 174, 174);;
+    cursor: pointer;
+}

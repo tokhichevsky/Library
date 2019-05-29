@@ -1,0 +1,6 @@
+<div class="treeli" *ngFor = "let child of node.children">
+  <div class="clickli" (click)="onOpenNode(child)" [ngClass]="{activeli:child.isActive}">{{ child.name }} 
+    
+  </div><span class="add-child-button"  (click)="onAddNode(child)" *ngIf="isAuthorized && isCategory(child)">+</span>
+  <app-tree-render [node]="child" (onClick)="onOpenNode($event)" (onAdd)="onAddNode($event)" [isAuthorized]="isAuthorized"></app-tree-render>
+</div>

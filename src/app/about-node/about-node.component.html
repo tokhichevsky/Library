@@ -1,0 +1,39 @@
+<div *ngIf="(isBook(node) || isCategory(node)) && node.parent !== null">
+  <div *ngIf="isBook(node)">
+    <div *ngIf="isAuthorized; then book_with_login else book_without_login"></div>
+    <ng-template #book_without_login>
+      <div>ISBN: {{node.ISBN}}</div>
+      <div>Название: {{node.name}}</div>
+      <div>Автор: {{node.author}}</div>
+      <div>Краткое описание: <p>{{node.shortdescription}}</p>
+      </div>
+    </ng-template>
+    <ng-template #book_with_login>
+      <div><label>ISBN:</label>
+        <input #isbn="ngModel" placeholder="Введите ISBN..." type="text" name="ISBN" class="in-field"
+          [(ngModel)]="node.ISBN" required pattern="\d{13}"></div>
+      <div><label>Название:</label> <input placeholder="Введите название произведения..." type="text" name="name"
+          class="in-field" [(ngModel)]="node.name" required></div>
+      <div><label>Автор:</label> <input placeholder="Введите имя автора..." type="text" name="author" class="in-field"
+          [(ngModel)]="node.author" required></div>
+      <div><label>Краткое описание:</label>
+        <textarea placeholder="Введите краткое описание..." name="shortdescription" class="in-field"
+          [(ngModel)]="node.shortdescription" required></textarea>
+      </div>
+    </ng-template>
+  </div>
+  <div *ngIf="isCategory(node)">
+    <div *ngIf="isAuthorized; then cat_with_login else cat_without_login"></div>
+    <ng-template #cat_without_login>
+      <label>ID:</label> {{node.id}}
+
+      <div><label>Название:</label> {{ node.name }}</div>
+    </ng-template>
+    <ng-template #cat_with_login>
+      <div><label>ID:</label> {{node.id}}</div>
+      <div><label>Название:</label> <input placeholder="Введите название категории..." type="text" name="name"
+          class="in-field" [(ngModel)]="node.name" required></div>
+    </ng-template>
+  </div>
+  <div class="delete-button" (click)="removeNode(node)" *ngIf="isAuthorized">Удалить</div>
+</div>

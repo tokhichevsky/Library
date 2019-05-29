@@ -1,0 +1,20 @@
+<form class="chips-form">
+    <div class="chip-list" #chipList>
+        <div class="chip clear" (click)="clearInput(bookInput)" (click)="onChange(bookInput.value)"
+        (click)="clearSelect()">
+            <span class="cross">✖</span>
+        </div>
+        <div class="chip" *ngFor="let author of selectedAuthors; let i = index">
+            {{author}}
+            <div class="remove-btn cross" (click)="remove(author)" (click)="onChange(bookInput.value)">✖</div>
+        </div>
+        <input class="in-field" placeholder="Введите автора или название книги..." #bookInput [formControl]="nodeCtrl"
+            (input)="onInput($event)">
+    </div>
+    <div class="dropdown">
+        <div class="chip" *ngFor="let author of filteredAuthors" (click)="select(author)"
+            (click)="onChange(bookInput.value)" (click)="clearInput(bookInput)">
+            {{ author }}
+        </div>
+    </div>
+</form>

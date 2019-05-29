@@ -1,0 +1,28 @@
+Добавление в {{parentNode.name}}
+<br>
+<select class="selector" name="type" [(ngModel)]="selectedType">
+  <option *ngFor="let type of nodeTypes" [value]="type">
+    {{type}}
+  </option>
+</select>
+<div *ngIf="selectedType === 'Произведение'">
+  <div><label>ISBN:</label>
+    <input #isbn placeholder="Введите ISBN..." type="text" name="ISBN" class="in-field" required pattern="\d{13}">
+  </div>
+  <div><label>Название:</label>
+    <input #name placeholder="Введите название произведения..." type="text" name="name" class="in-field" required></div>
+  <div><label>Автор:</label>
+    <input #author placeholder="Введите имя автора..." type="text" name="author" class="in-field" required></div>
+  <div><label>Краткое описание:</label>
+    <textarea #description placeholder="Введите краткое описание..." name="shortdescription" class="in-field" required></textarea>
+  </div>
+  <div class="add-button" (click)="addBook(isbn.value, name.value, author.value, description.value)"
+  (click)="clearInputs([isbn, name, author, description])">Добавить
+    произведение</div>
+</div>
+
+<div *ngIf="selectedType === 'Категория'">
+  <div><label>Название: {{namecat.valid}}</label>
+    <input #namecat placeholder="Введите название категории..." type="text" name="name" class="in-field" required></div>
+  <div class="add-button" (click)="addCategory(namecat.value)" (click)="clearInputs([namecat])">Добавить категорию</div>
+</div>
