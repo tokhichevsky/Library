@@ -1,27 +1,27 @@
-# Library
+## Задание:
+Система библиотечного учета.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
+**Назначение:** осуществление учета литературы (добавление, удаление, редактирование, поиск, просмотр)
 
-## Development server
+**Основные характеристики.**
+a.	У книги есть уникальный номер (ISBN), автор, название, краткое описание, категория (фантастика, история и т.д.).
+b.	У категории есть уникальный идентификатор, и название.
+c.	Категории могут быть бесконечно вложенными друг в друга, например, история -> детская литература -> былины…
+d.	В категории на одном уровне вложенности могут быть как другие категории, так и книги.
+e.	Система имеет 2 уровня доступа: пользователь, администратор.
+f.	Пользователь может искать литературу просматривать краткое описание.
+g.	Администратор может добавлять, удалять, редактировать как категории, так и литературу.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+**Интерфейс.**
+Список категорий представить в виде древовидной структуры.
+1.	По этой структуре должен быть возможет «онлайн поиск» по категориям. А именно:
+1.	В поле ввода, когда начинаем вводить поисковый запрос – должны отфильтровываться «листья» дерева. Если внутри узла не осталось ни одного потомка, то введенный запрос должен применяться к этому узлу.
+2.	Так же должен быть фильтр «автокомплит» с «чипсами», который фильтрует по авторам.
+3.	Поиск по точному совпадению ISBN (при совпадении должна сразу открываться книга)
+4.	Поиск по вхождению в названии книги.
+5.	Результаты поиска – отфильтрованное дерево.
+При выборе в дереве категории, категория должна раскрываться. При выборе книги, должен открываться просмотр (краткое содержание, название, ISBN, автор)
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Результат (Angular 7.3.8):
+(Неавторизованный пользователь)[https://github.com/tokhichevsky/Library/blob/master/Screenshot_Guest.png]
+(Администратор)[https://github.com/tokhichevsky/Library/blob/master/Screenshot_Admin.png]
